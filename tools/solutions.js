@@ -1,0 +1,147 @@
+/*
+ * Scripted solutions used by tools/verify.js. Each line is one step:
+ *   "S go 12"            walk Seka until her centre is over column 12 (decimals allowed)
+ *   "B jump R 15"        Braco jumps, steering toward column 15, until he lands
+ *   "S jump R 20 glide"  keep jump held to glide
+ *   "S jump N"           jump straight up
+ *   "B rj R 7.4 11"      run right, take off at column 7.4, land near column 11
+ *   "S use"              press the use key (levers)
+ *   "wait 1.5"           do nothing for 1.5 s
+ *   "S go 5 | B go 9"    run both at the same time
+ */
+module.exports = {
+  1: ['B go 5', 'B rj R 7.4 11', 'S go 5', 'S rj R 7.4 11',
+      'B go 16', 'B jump R 17.5', 'B jump R 20', 'B go 28',
+      'S go 16', 'S jump R 17.5', 'S jump R 20', 'S go 25', 'S go 28'],
+  2: ['S go 6', 'S jump N', 'S go 10', 'B go 14', 'S go 15', 'S jump R 16', 'S go 17',
+      'B go 25', 'S go 23', 'S go 28', 'B go 28'],
+  3: ['B go 17', 'S go 15', 'S jump R 17', 'S jump R 19.5', 'S go 21', 'S use', 'wait 1.7',
+      'S use', 'wait 1.7', 'B go 24', 'B go 27', 'S go 27'],
+  4: ['S go 5', 'S jump N', 'B go 10.1', 'S go 8.5', 'S jump R 13', 'B jump R 13',
+      'S go 19', 'S jump R 22', 'S jump R 25', 'S go 26', 'B go 19', 'B go 22.2',
+      'B jump R 23', 'B jump R 25', 'B go 28', 'S go 28'],
+  5: ['S go 18', 'S go 17', 'S use', 'wait 0.5', 'B go 18', 'S go 27', 'wait 0.5',
+      'B go 29', 'S go 29'],
+  6: ['B go 7.5', 'S go 5.5', 'S jump R 22 glide', 'S go 23', 'wait 4.6', 'B go 23',
+      'B go 24', 'S go 25', 'B jump L 25', 'B jump R 27', 'S jump R 27', 'S go 28', 'B go 28'],
+  7: ['S go 5', 'S jump N', 'B go 8', 'S go 22', 'S jump R 24.5', 'S go 29', 'S go 28', 'S use',
+      'wait 1', 'B jump R 11.5', 'B go 8.8', 'B go 22', 'B jump R 23', 'B jump R 25',
+      'B go 26', 'S go 26'],
+  8: ['B go 6', 'B jump N', 'B go 9.5', 'B go 12', 'S go 20', 'S use', 'B go 17', 'B go 25',
+      'B go 28', 'S go 26.5', 'S go 28'],
+  9: ['S go 6', 'S jump N', 'B go 14.5', 'S go 15', 'S jump R 17', 'S go 20', 'wait 1.3',
+      'B go 27', 'B go 23.5', 'S go 26', 'S jump L 23.5', 'S jump L 21', 'S jump L 17',
+      'S use', 'wait 1.6', 'S go 16', 'S jump L 13', 'S go 10', 'B go 16.8', 'B jump L 16',
+      'B jump L 13', 'B go 10'],
+  10: ['S go 3', 'S jump N', 'B go 5.5', 'B go 8.1', 'B jump R 12', 'S go 8', 'S jump R 12',
+       'S jump R 14', 'S go 22', 'wait 0.5', 'B jump R 14', 'B go 21.5', 'B go 23', 'B go 25.2',
+       'B jump R 26', 'B jump R 28', 'S go 24', 'S jump R 28', 'B go 29', 'S go 29']
+};
+Object.assign(module.exports, {
+  11: ['S go 3', 'S jump N', 'S go 5.5 | B go 6', 'at 0 0', 'S go 7.5 | B go 8.7', 'at 0 1',
+       'S go 24 | B go 25', 'S jump R 25', 'S jump R 28', 'S jump L 25', 'S go 24',
+       'B jump R 25', 'B jump R 28', 'B jump L 25', 'B go 24'],
+  12: ['S go 6', 'S jump N', 'S go 13 | B go 13', 'S jump R 14', 'S go 15', 'S go 17',
+       'S go 23 | B go 23', 'B go 23 | S go 25', 'B go 29 | S go 29'],
+  13: ['B go 6.5', 'S go 3', 'wait 2.4', 'B go 9', 'S go 15', 'S go 24.5', 'B go 20', 'wait 2.4',
+       'S go 22', 'S go 12', 'B go 12'],
+  14: ['B go 5', 'S go 10', 'wait 2.4', 'B go 14.2', 'B go 11', 'S go 20', 'S go 27',
+       'S jump R 29', 'S jump L 26', 'S jump N', 'S go 22', 'S jump L 18', 'S go 17',
+       'B go 14', 'B jump R 15', 'B jump R 17', 'B go 17'],
+  15: ['S go 4', 'B go 6', 'at 0 0', 'B go 8', 'at 0 1', 'B go 26', 'B go 27',
+       'S go 6', 'at 0 0', 'S go 8', 'at 0 1', 'S go 26', 'at 1 0', 'S go 28.5 | B go 29',
+       'at 1 1', 'S go 25 | B go 24.5', 'S go 24'],
+  16: ['B go 3', 'B go 13.5', 'S go 17', 'S jump R 19', 'S jump R 22', 'wait 2.5', 'B go 9',
+       'S jump L 19', 'S go 15', 'S jump L 11.5', 'B jump L 6.5', 'S go 9.6', 'S jump L 6.5', 'S go 2 | B go 2.2'],
+  17: ['S go 14', 'B jump L 14', 'B jump L 12', 'S jump L 13', 'S use', 'B go 8.8', 'wait 0.5',
+       'B go 4.4', 'B jump L 1.5', 'B go 5.4', 'B jump R 8', 'B jump R 10', 'B go 20', 'B go 28',
+       'S go 20', 'S go 26', 'S go 28'],
+  18: ['B go 5.5', 'B go 7', 'S jump L 2', 'S use', 'S go 5', 'at 0 1', 'B jump R 14.5',
+       'at 1 0', 'B go 17', 'at 1 1', 'B go 26', 'at 0 0', 'S go 7', 'at 0 1', 'S jump R 14.5',
+       'at 1 0', 'S go 17', 'at 1 1', 'S go 27', 'B go 27'],
+  19: ['B go 4', 'B use', 'S go 4', 'S use', 'S go 13', 'S use', 'S go 22', 'S go 26.5',
+       'B go 11', 'B jump N', 'B go 13', 'B use', 'B go 16', 'B go 28', 'S go 28'],
+  20: ['B go 10.5', 'S jump L 2', 'S go 3', 'S go 2', 'at 0 1', 'B go 13', 'B go 16.1', 'S go 5',
+       'at 0 0', 'S go 10.5', 'at 0 1', 'S go 13', 'at 1 0', 'B go 18.1', 'at 1 1', 'B go 24.1',
+       'S go 17', 'S jump R 23.5 glide', 'B jump R 26.5', 'B go 29', 'S go 29']
+});
+Object.assign(module.exports, {
+  21: ['B go 4', 'B go 7.1', 'wait 0.4', 'B go 8.5', 'B jump R 11.5', 'S go 5', 'S rj R 7.3 11.5',
+       'B go 15', 'B jump R 16 bounce', 'B air R 19', 'S go 15', 'S jump R 16 bounce', 'S air R 19', 'B go 27', 'S go 24', 'S go 27'],
+  22: ['S go 2.5', 'B go 6', 'wait 2.8', 'S jump R 26 glide', 'S go 27', 'S use', 'wait 0.5',
+       'B go 28', 'S go 29', 'S go 28'],
+  23: ['B go 3', 'S go 4', 'S jump R 7.5 bounce', 'S air R 12.5', 'S air R 17.5', 'S air R 22.5',
+       'S air R 27', 'S go 29', 'S go 27', 'B go 4', 'B jump R 7.5 bounce', 'B air R 12.5',
+       'B air R 17.5', 'B air R 22.5', 'B air R 28', 'B go 28', 'S go 28'],
+  24: ['S go 4', 'S jump N', 'B go 11.9', 'S go 9', 'S use', 'wait 2', 'B go 19.3', 'S use', 'wait 2',
+       'S go 12.5', 'B go 16', 'B use', 'wait 2', 'S go 18.5', 'S jump R 22', 'B go 18.5',
+       'B jump R 22', 'S go 28 | B go 28'],
+  25: ['B go 5', 'S go 3.5', 'S jump N', 'S jump L 2', 'S jump R 4', 'S jump R 27 glide', 'B go 6',
+       'at 0 0', 'B go 8', 'at 0 1', 'B go 24.5', 'S go 29', 'wait 1.3', 'B go 28', 'S go 28'],
+  26: ['B go 4.25', 'S go 3.3', 'S jump R 7', 'S go 12.5', 'S jump R 19.5 glide', 'S use',
+       'S jump R 28 glide', 'S go 29', 'B jump R 7', 'B go 19.5', 'B go 20', 'B go 29'],
+  27: ['B go 4.1', 'wait 0.4', 'B go 5.5', 'B jump R 8.5', 'S go 6', 'B go 10.1', 'B jump R 11 bounce', 'B air R 14',
+       'B go 18.2', 'S go 17', 'B jump R 19.1', 'B jump R 22', 'B go 27', 'S jump R 22', 'S go 27'],
+  28: ['S go 4', 'B go 8', 'B go 10', 'B use', 'S go 12', 'S use', 'B go 15', 'S go 20', 'B go 17',
+       'B jump N', 'B go 23', 'B use', 'B go 26', 'B go 29', 'S go 27.5', 'S go 29'],
+  29: ['S jump L 2 bounce', 'S air R 9 glide', 'S use', 'B go 6.1', 'at 0 0', 'B go 8.6', 'at 0 1',
+       'B go 25.25', 'B jump R 27.5', 'S jump R 25 glide', 'S jump R 28', 'S go 29', 'B go 29'],
+  30: ['S jump L 2 bounce', 'S air R 5', 'B go 6', 'B jump R 9', 'B go 25.2', 'B jump R 26',
+       'B jump R 28', 'S jump R 28 glide', 'S jump R 28', 'S go 29 | B go 29']
+});
+
+Object.assign(module.exports, {
+  31: ['B go 5.2', 'B jump R 9', 'B go 12.4', 'B go 13.3', 'B jump R 17', 'B go 18.2', 'B jump R 22', 'B go 27',
+       'S go 5.2', 'S jump R 9', 'S go 13.4', 'S jump R 17', 'S go 18.2', 'S jump R 22', 'S go 25', 'S jump R 27', 'S go 29.6', 'S go 28', 'B go 28'],
+  32: ['B go 7.5', 'B go 15.5', 'B go 12', 'S go 12', 'S jump N', 'S go 17.2', 'S jump R 21', 'S go 25', 'S use',
+       'B go 17.2', 'B jump R 21', 'B go 28', 'S go 28', 'S jump R 30', 'S go 28'],
+  33: ['S go 2', 'S jump N', 'S go 8', 'B go 4', 'at 0 1', 'S go 26', 'S use', 'B go 6.4', 'at 0 0', 'B go 8', 'at 0 1',
+       'B go 26', 'B go 29', 'S go 30', 'S jump N', 'S go 29'],
+  34: ['B go 13.6', 'S go 12.8', 'S jump R 13.6', 'S jump L 11', 'S go 6', 'S jump N', 'S go 3', 'S use', 'S go 16',
+       'B go 19.1', 'B jump R 20 bounce', 'B air R 23', 'B go 26', 'B go 29', 'S go 19.1', 'S jump R 20 bounce', 'S air R 23',
+       'S go 28', 'S go 29'],
+  35: ['B go 8', 'B jump R 11', 'B go 17', 'S go 7.6', 'S jump R 11', 'S jump R 13', 'S jump N', 'S go 20 | B go 20', 'S jump R 24', 'B jump R 24',
+       'S go 30', 'S go 28', 'B go 28'],
+  36: ['B go 3', 'S go 10', 'S jump N', 'S go 15', 'S jump N', 'B go 16', 'S go 22', 'S jump N', 'S go 27',
+       'B go 29', 'S go 29'],
+  37: ['B go 5', 'S jump L 5', 'S jump L 3', 'S go 2', 'S jump N', 'S go 4', 'S jump R 23 glide', 'S go 24', 'S use',
+       'B go 7.4', 'at 0 0', 'B go 9', 'at 0 1', 'B go 26', 'S go 28', 'B go 28'],
+  38: ['S go 4', 'S jump N', 'S jump N', 'S go 19', 'S use', 'B go 8.5', 'B go 12.2', 'B jump R 16', 'B go 23',
+       'S go 23', 'S jump R 27 glide', 'S go 29', 'B go 29'],
+  39: ['S go 2', 'S jump N', 'S jump N', 'B go 7.4', 'S use', 'at 0 1', 'B go 25.6', 'S go 4.6', 'S go 5.4',
+       'at 0 0', 'S go 7', 'at 0 1', 'S go 24.5', 'S jump R 28', 'S go 30', 'S jump N', 'S go 29', 'B go 25', 'B jump R 28', 'B go 29'],
+  40: ['B go 5.2', 'B go 6.6', 'B jump R 9', 'B go 10.5', 'B go 13', 'S go 5.2', 'S go 6.4', 'S jump R 9', 'S go 13', 'S jump N',
+       'S go 17.4', 'at 0 1', 'at 0 0', 'S go 19', 'at 0 1', 'S go 25', 'S use', 'B go 17.4', 'at 0 1', 'at 0 0', 'B go 19', 'at 0 1', 'B go 26',
+       'B jump R 27 bounce', 'B air R 29.5', 'S go 26', 'S jump R 27 bounce', 'S air R 29.5']
+});
+
+Object.assign(module.exports, {
+  41: ['B go 4.2', 'B jump R 7.5', 'S go 4.2', 'S jump R 8', 'S go 11.5 | B go 11.5', 'S go 12.2', 'S jump R 16',
+       'B go 12.2', 'B jump R 16', 'B go 17', 'S go 23', 'S use', 'B go 24.2', 'B jump R 27', 'S go 24.2', 'S jump R 29',
+       'S jump L 27', 'S jump N', 'S go 29.4', 'B go 29.4'],
+  42: ['B go 8.2', 'B jump R 9', 'B jump R 11', 'B go 13.5', 'B go 14.3', 'B jump R 17', 'B go 19',
+       'S go 3', 'S jump N', 'S go 8', 'S jump R 9', 'S jump R 11', 'S go 14.3', 'S jump R 16.5', 'S go 25', 'S use',
+       'S go 27', 'S jump N', 'B go 29', 'S go 29'],
+  43: ['S go 3', 'S jump N', 'S jump R 6', 'S go 11', 'S use', 'S go 12.5', 'S jump R 16', 'S go 19', 'S use', 'S go 22.4',
+       'B go 7.2', 'B jump R 11', 'B go 15.2', 'B jump R 18.5', 'B go 22', 'S jump R 27', 'S jump N', 'S go 30.3', 'S go 29.5',
+       'B go 23.2', 'B jump R 27', 'B go 29.5'],
+  44: ['S go 3', 'S jump N', 'S go 10.5', 'B go 5', 'at 0 1', 'S jump N', 'S go 14', 'S use', 'B go 9', 'S use', 'at 0 0', 'B go 10.5', 'S use',
+       'at 0 1', 'B go 16', 'B jump R 20.5', 'S go 16.2', 'S jump R 20.5', 'S go 21', 'S jump N', 'S go 24', 'B go 24'],
+  45: ['B go 2', 'S go 5.2', 'S jump R 8 bounce', 'S air R 13', 'S air R 18', 'S air R 23', 'S air R 27', 'S go 29',
+       'B go 5.2', 'B jump R 8 bounce', 'B air R 13', 'B air R 18', 'B air R 23', 'B air R 27', 'B go 28', 'S go 28'],
+  46: ['B go 3', 'B use', 'wait 0.6', 'S go 10', 'B use', 'wait 0.6', 'S go 16', 'B use', 'wait 0.6', 'S go 22',
+       'B use', 'wait 0.6', 'S go 28', 'S jump N', 'S use', 'wait 0.6', 'B go 10', 'S use', 'wait 0.6', 'B go 16',
+       'S use', 'wait 0.6', 'B go 22', 'S use', 'wait 0.6', 'B go 29', 'S go 29'],
+  47: ['B go 5.5', 'B go 11.6', 'B jump R 14', 'S go 3', 'S jump N', 'S go 10.5', 'S jump R 14', 'S jump N', 'S go 16',
+       'B go 22', 'B use', 'S go 22.2', 'S jump R 25', 'B go 22.2', 'B jump R 25', 'B go 29', 'S go 29'],
+  48: ['S go 6', 'B go 1', 'at 0 1', 'S go 14', 'B go 4.4', 'at 0 0', 'B go 6', 'at 0 1', 'B go 15', 'S jump N',
+       'S go 16 | B go 16', 'at 1 0', 'S go 18 | B go 18.4', 'at 1 1', 'S go 29 | B go 29'],
+  49: ['S jump N', 'at 0 0', 'S jump R 5', 'at 0 0.5', 'S jump R 10', 'at 1 0', 'S jump N', 'at 2 0.5', 'S jump R 15',
+       'at 3 0.5', 'S jump R 20', 'at 3 0', 'S jump N', 'S jump R 24', 'S go 27', 'S use',
+       'B go 2.4', 'at 0 0', 'B jump R 5', 'at 0 0.5', 'B jump R 10', 'at 2 0.5', 'B jump R 15', 'at 3 0.5', 'B jump R 20',
+       'at 3 0', 'B jump R 24', 'B go 29', 'S go 29'],
+  50: ['B go 4.6', 'B go 5.1', 'B jump R 8', 'S go 4.6', 'S jump R 7', 'S jump R 8', 'S jump N', 'S jump N',
+       'S jump R 11.5', 'S go 12.2', 'S jump R 15.5', 'S go 18', 'S go 21', 'S use', 'S go 24.3',
+       'B go 13', 'B go 14.2', 'B jump R 18', 'B go 22', 'S jump R 28', 'S use', 'B go 24', 'at 0 1', 'at 0 0', 'B go 25.5', 'at 0 1',
+       'B go 29', 'S go 29']
+});
