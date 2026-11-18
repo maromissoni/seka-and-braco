@@ -104,13 +104,14 @@ m = room()
 box(m, 3, 14, 26, 14, 'w'); put(m, 5, 14, '#'); put(m, 5, 13, 'b'); put(m, 11, 14, '#'); put(m, 11, 13, 'b'); put(m, 17, 14, '#'); put(m, 17, 13, 'b')
 put(m, 20, 6, '###')
 put(m, 8, 4, 'o'); put(m, 14, 4, 'o'); put(m, 21, 2, 'o'); put(m, 1, 13, '12'); put(m, 29, 13, 'E')
-L(name='Spring Marsh', idea='Springy tussocks are the only way over the marsh. Seka bounces up to a hidden roost to pull the gate lever; then Braco follows the same springs all the way to the far bank.',
-  mech=['spring chains', 'steering in mid-air', 'lever on a high roost', 'marsh water'],
-  hint='Bounce from tussock to tussock, steering in the air. {S} steers onto the high roost from the last spring and pulls the lever. Then {B} bounces all the way over.',
+L(name='Spring Marsh', idea='Springy tussocks are the only way over the marsh. Both bounce up to the high roost — the bell there only holds the far gate for three seconds, so leap for the bank together.',
+  mech=['spring chains', 'steering in mid-air', 'timer bell on a high roost', 'marsh water'],
+  hint='Bounce from tussock to tussock, steering in the air. {B} goes first and waits on the roost; {S} lands on the bell, then you both jump for the gate at once.',
   map=rows(m),
-  obj=[lever(21, 5, 'a'), gate(28, 1, 'a', h=13)],
-  sol=['S go 2', 'S jump R 5 bounce', 'S air R 11', 'S air R 17', 'S air R 21', 'S go 21', 'S use', 'S jump N', 'S jump R 29 glide',
-       'B go 2', 'B jump R 5 bounce', 'B air R 11', 'B air R 17', 'B air R 21', 'B go 22.2', 'B jump R 28', 'B go 28.8', 'S go 29.6'])
+  obj=[timer(21, 5, 'a', 3), gate(28, 1, 'a', h=13)],
+  sol=['B go 2', 'B jump R 5 bounce', 'B air R 11', 'B air R 17', 'B air R 21', 'B go 22.3',
+       'S go 2', 'S jump R 5 bounce', 'S air R 11', 'S air R 17', 'S air R 20.6', 'S go 20.8', 'S jump N',
+       'S jump R 29 glide | B jump R 28', 'B go 28.8', 'S go 29.6'])
 
 # 79 ─────────────────────────────────────────────
 m = room()
@@ -127,7 +128,7 @@ L(name='Bird Hide', idea='The heavy plate is on the ground but the only crate is
 
 # 80 ─────────────────────────────────────────────
 m = room()
-put(m, 4, 13, 'C'); box(m, 6, 14, 14, 14, 'w'); put(m, 21, 13, 'b'); put(m, 23, 6, '#####')
+put(m, 4, 13, 'C'); box(m, 6, 14, 14, 14, 'w'); put(m, 21, 13, 'b'); put(m, 23, 6, '#####'); put(m, 25, 14, '^^')
 put(m, 16, 10, 'o'); put(m, 22, 6, 'o'); put(m, 25, 2, 'o'); put(m, 1, 13, '12'); put(m, 29, 13, 'E')
 L(name='Rit Finale', idea='Marsh finale: start the raft, ferry the crate to the island’s heavy plate, then bounce up to the heron roost for the last lever.',
   mech=['lever-powered looping raft', 'crate rides the raft', 'crate on a heavy plate', 'spring', 'lever on a high roost'],
@@ -137,4 +138,4 @@ L(name='Rit Finale', idea='Marsh finale: start the raft, ferry the crate to the 
        plate(17, 13, 'b', heavy=True), gate(19, 1, 'b', h=13), lever(25, 5, 'c'), gate(28, 1, 'c', h=13)],
   sol=['S go 3', 'S use', 'at 0 1', 'at 0 0', 'B go 6.2', 'at 0 1', 'B go 15.8', 'B jump R 19.5', 'B jump R 23.5',
        'at 0 0', 'S go 7.2', 'at 0 1', 'S go 16', 'S jump N', 'S jump R 18.6', 'S go 19.8', 'S jump R 21 bounce', 'S air R 25',
-       'S go 25', 'S use', 'S jump N', 'S jump R 29', 'B go 28.8', 'S go 29.6'])
+       'S go 25', 'S use', 'S jump N', 'S jump R 29', 'B rj R 23.9 28', 'B go 28.8', 'S go 29.6'])

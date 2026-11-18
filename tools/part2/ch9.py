@@ -45,7 +45,7 @@ L(name='Harvest Wagon', idea='The harvest wagon runs along its track while a lev
 
 # 84 ─────────────────────────────────────────────
 m = room()
-put(m, 6, 13, 'b'); box(m, 8, 6, 11, 6); put(m, 20, 13, 'b'); box(m, 22, 6, 24, 6)
+put(m, 6, 13, 'b'); box(m, 8, 6, 11, 6); put(m, 20, 13, 'b'); box(m, 22, 6, 24, 6); put(m, 24, 14, '^^')
 put(m, 7, 6, 'o'); put(m, 13, 10, 'o'); put(m, 23, 2, 'o'); put(m, 1, 13, '12'); put(m, 29, 13, 'E')
 L(name='Grape Stomp', idea='The heavy grape press sits on a high shelf. Braco bounces up to stomp it, which opens the gate for Seka; later Seka bounces up to the lever that opens the last gate.',
   mech=['springs', 'heavy plate on a high shelf', 'lever', 'lever on a high shelf'],
@@ -54,7 +54,7 @@ L(name='Grape Stomp', idea='The heavy grape press sits on a high shelf. Braco bo
   obj=[plate(9, 5, 'a', heavy=True), gate(15, 1, 'a', h=13), lever(17, 13, 'a'), lever(23, 5, 'b'), gate(27, 1, 'b', h=13)],
   sol=['B go 4.8', 'B jump R 6 bounce', 'B air R 9', 'B go 9.3', 'S go 4.8', 'S jump R 8.5', 'S go 14', 'S jump N', 'S go 17', 'S use',
        'B go 11.5', 'B go 13', 'B go 18.5', 'S go 18.8', 'S jump R 20 bounce', 'S air R 23', 'S go 23', 'S use', 'S jump N',
-       'B jump R 22', 'B go 28.8', 'S jump R 26', 'S go 29.6'])
+       'B jump R 22', 'B rj R 22.9 27', 'B go 28.8', 'S jump R 26.6', 'S go 29.6'])
 
 # 85 ─────────────────────────────────────────────
 m = room()

@@ -1,0 +1,838 @@
+{
+ "51": {
+  "timers": {
+   "3": 2.25
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "52": {
+  "timers": {
+   "2": 2
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "53": {
+  "timers": {},
+  "lifts": {
+   "3": {
+    "speed": 156,
+    "pause": 0.3
+   }
+  },
+  "spikes": [
+   [
+    15,
+    14
+   ],
+   [
+    16,
+    14
+   ],
+   [
+    16,
+    5
+   ],
+   [
+    17,
+    5
+   ]
+  ],
+  "sol": [
+   "B go 12",
+   "B rj R 13.6 18.0",
+   "B go 19",
+   "B go 23.2",
+   "B rj L 17.4 13.0",
+   "B go 10",
+   "S go 3",
+   "S jump N",
+   "S go 4.5",
+   "S jump N",
+   "S jump N",
+   "S go 3",
+   "S jump N",
+   "S go 7.5",
+   "S rj R 8.3 13",
+   "S use",
+   "at 0 1",
+   "B go 14",
+   "S rj R 14.6 19.0",
+   "S go 26",
+   "S jump N",
+   "B rj R 14.6 19.0",
+   "B go 28.8",
+   "S go 29.6"
+  ]
+ },
+ "54": {
+  "timers": {},
+  "lifts": {},
+  "spikes": []
+ },
+ "55": {
+  "timers": {},
+  "lifts": {},
+  "spikes": []
+ },
+ "56": {
+  "timers": {},
+  "lifts": {
+   "0": {
+    "speed": 115,
+    "pause": 0.6
+   },
+   "1": {
+    "speed": 103,
+    "pause": 0.6
+   },
+   "2": {
+    "speed": 92,
+    "pause": 0.6
+   }
+  },
+  "spikes": []
+ },
+ "57": {
+  "timers": {},
+  "lifts": {},
+  "spikes": [
+   [
+    15,
+    9
+   ],
+   [
+    16,
+    9
+   ]
+  ],
+  "sol": [
+   "B go 7",
+   "B go 9.5",
+   "S go 3",
+   "S jump N",
+   "S jump R 6",
+   "S go 11",
+   "S use",
+   "S rj R 13.6 18.0",
+   "S go 19",
+   "S use",
+   "S go 21",
+   "S jump N",
+   "B go 15",
+   "B go 20",
+   "S go 26",
+   "S jump R 27.5",
+   "B go 28.8",
+   "S go 29.6"
+  ]
+ },
+ "58": {
+  "timers": {},
+  "lifts": {
+   "2": {
+    "speed": 169,
+    "pause": 0.3
+   },
+   "3": {
+    "speed": 169,
+    "pause": 0.3
+   }
+  },
+  "spikes": [
+   [
+    22,
+    5
+   ],
+   [
+    23,
+    5
+   ]
+  ],
+  "sol": [
+   "S go 3",
+   "S use",
+   "B go 13.4",
+   "S use",
+   "at 0 0",
+   "B go 16.6",
+   "S use",
+   "at 0 1",
+   "B go 19.3",
+   "S go 9",
+   "S jump N",
+   "S go 14.6",
+   "B use",
+   "at 1 1",
+   "S rj R 20.6 25.0",
+   "S go 25",
+   "S jump N",
+   "B rj R 20.6 25.0",
+   "B go 28.8",
+   "S go 29.6"
+  ]
+ },
+ "59": {
+  "timers": {
+   "2": 2
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "60": {
+  "timers": {
+   "3": 2
+  },
+  "lifts": {
+   "5": {
+    "speed": 143,
+    "pause": 0.5
+   }
+  },
+  "spikes": []
+ },
+ "61": {
+  "timers": {
+   "2": 2.75
+  },
+  "lifts": {
+   "1": {
+    "speed": 138,
+    "pause": 0.5
+   }
+  },
+  "spikes": []
+ },
+ "62": {
+  "timers": {},
+  "lifts": {
+   "0": {
+    "speed": 143,
+    "pause": 0.3
+   }
+  },
+  "spikes": [
+   [
+    21,
+    7
+   ],
+   [
+    22,
+    7
+   ]
+  ],
+  "sol": [
+   "S go 3",
+   "S jump N",
+   "S go 6.8",
+   "B go 5.3",
+   "B jump R 6.8",
+   "B jump R 9.5",
+   "B go 12",
+   "S jump R 10",
+   "S go 11",
+   "S jump N",
+   "B go 14.4",
+   "S go 12.4",
+   "S jump R 14.4",
+   "S jump R 17",
+   "S go 18",
+   "S use",
+   "at 0 1",
+   "B go 17",
+   "S rj R 19.6 24.0",
+   "S go 24",
+   "S jump N",
+   "B rj R 19.6 24.0",
+   "B go 28.8",
+   "S go 29.6"
+  ]
+ },
+ "63": {
+  "timers": {},
+  "lifts": {
+   "0": {
+    "speed": 143,
+    "pause": 0.5
+   }
+  },
+  "spikes": []
+ },
+ "64": {
+  "timers": {
+   "5": 2.5
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "65": {
+  "timers": {
+   "2": 2.25
+  },
+  "lifts": {},
+  "spikes": [
+   [
+    11,
+    14
+   ],
+   [
+    12,
+    14
+   ],
+   [
+    23,
+    14
+   ],
+   [
+    24,
+    14
+   ]
+  ],
+  "sol": [
+   "S go 3.8",
+   "S jump R 5 bounce",
+   "S air R 10",
+   "S go 10",
+   "S use",
+   "S go 12.4",
+   "S jump R 14.2",
+   "B go 4",
+   "B jump R 7",
+   "B rj R 9.6 14.0",
+   "B go 17",
+   "S go 17.6",
+   "S jump R 19 bounce",
+   "S air R 23",
+   "S go 23",
+   "S jump N",
+   "B go 17.9",
+   "B jump R 21",
+   "B rj R 21.6 26.0",
+   "B go 28.8",
+   "S go 25.7",
+   "S go 29.6"
+  ]
+ },
+ "66": {
+  "timers": {},
+  "lifts": {},
+  "spikes": []
+ },
+ "67": {
+  "timers": {
+   "3": 5
+  },
+  "lifts": {
+   "4": {
+    "speed": 182,
+    "pause": 0.4
+   }
+  },
+  "spikes": []
+ },
+ "68": {
+  "timers": {
+   "3": 2
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "69": {
+  "timers": {
+   "3": 3.5
+  },
+  "lifts": {
+   "2": {
+    "speed": 126,
+    "pause": 0.6
+   }
+  },
+  "spikes": []
+ },
+ "70": {
+  "timers": {
+   "2": 2
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "71": {
+  "timers": {},
+  "lifts": {
+   "0": {
+    "speed": 78,
+    "pause": 0.5
+   }
+  },
+  "spikes": []
+ },
+ "72": {
+  "timers": {},
+  "lifts": {
+   "0": {
+    "speed": 92,
+    "pause": 1.2
+   }
+  },
+  "spikes": []
+ },
+ "73": {
+  "timers": {},
+  "lifts": {
+   "3": {
+    "speed": 91,
+    "pause": 0.4
+   },
+   "4": {
+    "speed": 91,
+    "pause": 0.4
+   }
+  },
+  "spikes": []
+ },
+ "74": {
+  "timers": {},
+  "lifts": {
+   "1": {
+    "speed": 143,
+    "pause": 0.3
+   },
+   "3": {
+    "speed": 143,
+    "pause": 0.3
+   },
+   "5": {
+    "speed": 143,
+    "pause": 0.3
+   }
+  },
+  "spikes": []
+ },
+ "75": {
+  "timers": {},
+  "lifts": {},
+  "spikes": [
+   [
+    10,
+    9
+   ],
+   [
+    11,
+    9
+   ]
+  ],
+  "sol": [
+   "B go 8",
+   "B go 12",
+   "S go 3",
+   "S jump N",
+   "S jump R 6",
+   "S rj R 8.6 13.0",
+   "S go 17",
+   "S use",
+   "S go 20",
+   "S jump N",
+   "S go 22.5",
+   "B go 15.7",
+   "B go 21.1",
+   "S go 25",
+   "S use",
+   "S go 26",
+   "S jump R 28",
+   "B jump R 23.6",
+   "B go 28.8",
+   "S go 29.6"
+  ]
+ },
+ "76": {
+  "timers": {},
+  "lifts": {
+   "0": {
+    "speed": 130,
+    "pause": 0.3
+   },
+   "2": {
+    "speed": 130,
+    "pause": 0.3
+   }
+  },
+  "spikes": []
+ },
+ "77": {
+  "timers": {},
+  "lifts": {},
+  "spikes": [
+   [
+    9,
+    9
+   ],
+   [
+    10,
+    9
+   ]
+  ],
+  "sol": [
+   "S go 4",
+   "S jump N",
+   "S jump R 7",
+   "S rj R 7.6 12.0",
+   "S go 13.3",
+   "S use",
+   "S go 18",
+   "S jump N",
+   "B go 7",
+   "B go 9.5",
+   "B go 14",
+   "B go 16",
+   "B jump R 18.8",
+   "B go 11.3",
+   "S go 19.6",
+   "S jump R 22",
+   "B go 18.5",
+   "B go 21.5",
+   "B go 26",
+   "S go 25",
+   "S jump N",
+   "B go 28.8",
+   "S go 29.6"
+  ]
+ },
+ "78": {
+  "timers": {
+   "0": 2
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "79": {
+  "timers": {
+   "0": 3.75
+  },
+  "lifts": {
+   "1": {
+    "speed": 156,
+    "pause": 0.4
+   }
+  },
+  "spikes": [
+   [
+    9,
+    14
+   ],
+   [
+    10,
+    14
+   ]
+  ],
+  "sol": [
+   "B rj R 7.6 12.0",
+   "B go 12.3",
+   "B jump R 13.9",
+   "S rj R 7.6 12.0",
+   "S go 16",
+   "S go 18",
+   "at 0 1",
+   "B go 20",
+   "B jump N",
+   "B go 23.2",
+   "B go 22",
+   "S go 22.8",
+   "S jump R 26.5",
+   "S jump N",
+   "B go 24.6",
+   "B jump R 27.5",
+   "B go 28.8",
+   "S go 29.6"
+  ]
+ },
+ "80": {
+  "timers": {},
+  "lifts": {},
+  "spikes": []
+ },
+ "81": {
+  "timers": {},
+  "lifts": {},
+  "spikes": []
+ },
+ "82": {
+  "timers": {},
+  "lifts": {},
+  "spikes": [
+   [
+    16,
+    10
+   ],
+   [
+    17,
+    10
+   ],
+   [
+    10,
+    10
+   ],
+   [
+    11,
+    10
+   ]
+  ],
+  "sol": [
+   "B go 2.9",
+   "S go 1.2",
+   "S jump R 2.9",
+   "S jump R 5",
+   "S rj R 8.6 13.0",
+   "S go 13",
+   "S jump N",
+   "S rj R 14.6 19.0",
+   "S go 24",
+   "S use",
+   "B go 6.5",
+   "B jump R 9.5",
+   "B go 17.7",
+   "B jump L 14.5",
+   "B jump L 9.5",
+   "B jump L 6.5",
+   "B go 15.5",
+   "B jump R 17.7",
+   "B jump R 20.5",
+   "B go 28.8",
+   "S go 26",
+   "S jump R 28",
+   "S jump N",
+   "S go 29.6"
+  ]
+ },
+ "83": {
+  "timers": {},
+  "lifts": {
+   "1": {
+    "speed": 169,
+    "pause": 0.3
+   }
+  },
+  "spikes": []
+ },
+ "84": {
+  "timers": {},
+  "lifts": {},
+  "spikes": []
+ },
+ "85": {
+  "timers": {},
+  "lifts": {
+   "1": {
+    "speed": 143,
+    "pause": 0.3
+   }
+  },
+  "spikes": []
+ },
+ "86": {
+  "timers": {
+   "0": 2
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "87": {
+  "timers": {},
+  "lifts": {
+   "0": {
+    "speed": 130,
+    "pause": 0.3
+   }
+  },
+  "spikes": [
+   [
+    8,
+    14
+   ],
+   [
+    9,
+    14
+   ]
+  ],
+  "sol": [
+   "B rj R 6.6 11.0",
+   "B go 18.3",
+   "B jump R 19.5",
+   "B jump R 22",
+   "S rj R 6.6 11.0",
+   "S go 18.2",
+   "S jump R 19.5",
+   "S jump R 21",
+   "B go 24.3",
+   "S go 23.3",
+   "S jump R 24.3",
+   "S jump R 27",
+   "S go 26.2",
+   "B go 23.9",
+   "B jump N",
+   "S use",
+   "at 0 1",
+   "S go 28",
+   "S jump N",
+   "S go 29.6",
+   "B go 28.8"
+  ]
+ },
+ "88": {
+  "timers": {},
+  "lifts": {
+   "0": {
+    "speed": 156,
+    "pause": 0.3
+   }
+  },
+  "spikes": []
+ },
+ "89": {
+  "timers": {
+   "1": 4.75
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "90": {
+  "timers": {
+   "2": 2.75
+  },
+  "lifts": {
+   "3": {
+    "speed": 143,
+    "pause": 0.3
+   }
+  },
+  "spikes": []
+ },
+ "91": {
+  "timers": {},
+  "lifts": {},
+  "spikes": [
+   [
+    6,
+    14
+   ],
+   [
+    7,
+    14
+   ]
+  ],
+  "sol": [
+   "S rj R 4.6 9.0",
+   "S go 16",
+   "B rj R 4.6 9.0",
+   "B go 14",
+   "B use",
+   "S go 21.2",
+   "B go 19.8",
+   "B jump R 21.2",
+   "B jump R 23.5",
+   "B go 28.8",
+   "S jump R 23.5",
+   "S go 25",
+   "S jump N",
+   "S go 29.6"
+  ]
+ },
+ "92": {
+  "timers": {},
+  "lifts": {},
+  "spikes": []
+ },
+ "93": {
+  "timers": {},
+  "lifts": {
+   "2": {
+    "speed": 143,
+    "pause": 0.3
+   }
+  },
+  "spikes": []
+ },
+ "94": {
+  "timers": {},
+  "lifts": {
+   "2": {
+    "speed": 156,
+    "pause": 0.3
+   }
+  },
+  "spikes": []
+ },
+ "95": {
+  "timers": {
+   "2": 2.25
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "96": {
+  "timers": {},
+  "lifts": {},
+  "spikes": []
+ },
+ "97": {
+  "timers": {
+   "0": 2
+  },
+  "lifts": {},
+  "spikes": []
+ },
+ "98": {
+  "timers": {
+   "0": 4.75,
+   "1": 4
+  },
+  "lifts": {},
+  "spikes": [
+   [
+    5,
+    14
+   ],
+   [
+    6,
+    14
+   ]
+  ],
+  "sol": [
+   "B rj R 3.6 8.0",
+   "B go 15.6",
+   "B go 9.4",
+   "S rj R 3.6 8.0",
+   "S go 15.4",
+   "S jump R 16.9",
+   "S jump R 19",
+   "S go 20",
+   "S jump N",
+   "B go 15.4",
+   "B jump R 19",
+   "B go 28.8",
+   "S go 29.6"
+  ]
+ },
+ "99": {
+  "timers": {},
+  "lifts": {
+   "1": {
+    "speed": 156,
+    "pause": 0.5
+   }
+  },
+  "spikes": []
+ },
+ "100": {
+  "timers": {
+   "2": 2.75
+  },
+  "lifts": {
+   "3": {
+    "speed": 143,
+    "pause": 0.3
+   }
+  },
+  "spikes": []
+ }
+}

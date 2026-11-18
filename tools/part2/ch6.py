@@ -47,19 +47,19 @@ L(name='Watchtower', idea='Seka climbs the watchtower ledges while Braco works t
 # 54 ─────────────────────────────────────────────
 m = room()
 box(m, 6, 14, 8, 14, '^'); box(m, 18, 11, 30, 13); put(m, 3, 13, 'C'); put(m, 10, 13, 'C')
-put(m, 7, 11, 'o'); put(m, 17, 8, 'o'); put(m, 24, 6, 'o'); put(m, 1, 13, '12'); put(m, 29, 10, 'E')
+put(m, 22, 11, '^^'); put(m, 7, 11, 'o'); put(m, 17, 8, 'o'); put(m, 26, 6, 'o'); put(m, 1, 13, '12'); put(m, 29, 10, 'E')
 L(name='Two Crates', idea='One crate has to fill the spike pit and the other has to hold a heavy plate — and later become a step. Push them in the right order.',
   mech=['crate fills a pit', 'crate on a heavy plate', 'lever', 'crate as a step'],
   hint='Push the first crate into the spike pit. Push the second onto the heavy plate so {S} can slip through and pull the lever, then shove it on to the wall as a step.',
   map=rows(m),
   obj=[plate(12, 13, 'a', heavy=True), gate(14, 1, 'a', h=13), lever(16, 13, 'a')],
   sol=['B go 5.2', 'B go 5', 'B rj R 6.7 10', 'B go 11.2', 'S go 5', 'S rj R 6.7 9.6', 'S go 12.5', 'S jump R 16', 'S use', 'S jump R 19.5',
-       'B jump L 9.3', 'B go 16', 'B jump R 17', 'B jump R 19.5', 'B go 26',
-       'S go 18.4', 'S jump L 17', 'S jump N', 'S jump R 20', 'S go 24', 'S jump N', 'B go 28.8', 'S go 29.6'])
+       'B jump L 9.3', 'B go 16', 'B jump R 17', 'B jump R 19.5', 'B rj R 20.6 25.5', 'B go 28',
+       'S go 18.4', 'S jump L 17', 'S jump N', 'S jump R 20', 'S rj R 20.6 25.5', 'S go 26', 'S jump N', 'B go 28.8', 'S go 29.6'])
 
 # 55 ─────────────────────────────────────────────
 m = room()
-box(m, 23, 12, 24, 13); put(m, 5, 13, 'C'); put(m, 12, 8, 'o'); put(m, 24, 9, 'o'); put(m, 26, 11, 'o')
+box(m, 23, 12, 24, 13); put(m, 25, 14, '^^'); put(m, 5, 13, 'C'); put(m, 12, 8, 'o'); put(m, 24, 9, 'o'); put(m, 26, 10, 'o')
 put(m, 1, 13, '12'); put(m, 29, 13, 'E')
 L(name='Gatehouse', idea='The gatehouse only opens when two plates are pressed at once — but there are only two of you and both need to get through. A crate, a lever and a quick bell dash solve it.',
   mech=['gate needing two switches', 'crate on a plate', 'heavy plate', 'lever', 'timer bell'],
@@ -68,8 +68,8 @@ L(name='Gatehouse', idea='The gatehouse only opens when two plates are pressed a
   obj=[plate(9, 13, 'a'), plate(12, 13, 'b', heavy=True), gate(15, 1, ['a', 'b'], h=13), lever(18, 13, 'b'),
        timer(20, 13, 'c', 3), gate(27, 1, 'c', h=13)],
   sol=['B go 7.6', 'B jump R 10.5', 'B go 12', 'S go 6.5', 'S jump R 10.6', 'S jump R 12', 'S jump N', 'S jump R 16', 'S go 18', 'S use',
-       'B go 21.5', 'S go 20', 'B go 22.2', 'B jump R 24', 'B jump R 26', 'B go 28.8', 'S go 22.2', 'S jump R 24', 'S jump N',
-       'S jump R 26.5', 'S go 29.6'])
+       'B go 21.5', 'S go 20', 'B go 22.2', 'B jump R 24', 'B jump R 28.5', 'B go 28.8', 'S go 22.2', 'S jump R 24', 'S jump N',
+       'S jump R 28.2', 'S go 29.6'])
 
 # 56 ─────────────────────────────────────────────
 m = room()

@@ -17,7 +17,7 @@ L(name='Harvest Road', idea='The last journey across the plain. One lever swaps 
 
 # 92 ─────────────────────────────────────────────
 m = room()
-put(m, 5, 13, 'C'); put(m, 14, 13, 'C'); box(m, 23, 10, 26, 10)
+put(m, 5, 13, 'C'); put(m, 14, 13, 'C'); box(m, 23, 10, 26, 10); put(m, 25, 14, '^')
 put(m, 10, 11, 'o'); put(m, 19, 11, 'o'); put(m, 25, 6, 'o'); put(m, 1, 13, '12'); put(m, 29, 13, 'E')
 L(name='Crate Relay', idea='Two crates, two heavy scales and two doors in a row. Braco rolls each crate home; at the end he lifts Seka to the loft lever.',
   mech=['crates on heavy plates', 'two gates in a row', 'Seka stands on Braco', 'lever in a loft'],
@@ -26,7 +26,7 @@ L(name='Crate Relay', idea='Two crates, two heavy scales and two doors in a row.
   obj=[plate(9, 13, 'a', heavy=True), gate(12, 1, 'a', h=13), plate(18, 13, 'b', heavy=True), gate(21, 1, 'b', h=13),
        lever(25, 9, 'c'), gate(28, 1, 'c', h=13)],
   sol=['B go 3.8', 'B go 8.6', 'B jump R 10.8', 'B go 12.8', 'B go 17.6', 'B jump R 20.3', 'B go 21.8', 'S go 7.6', 'S jump R 10.8',
-       'S go 16.6', 'S jump R 19.5', 'S go 20.6', 'S jump R 21.8', 'S jump R 24', 'S go 25', 'S use', 'S jump N', 'B go 28.8', 'S go 26',
+       'S go 16.6', 'S jump R 19.5', 'S go 20.6', 'S jump R 21.8', 'S jump R 24', 'S go 25', 'S use', 'S jump N', 'B rj R 24.1 26.6', 'B go 28.8', 'S go 26',
        'S jump R 29.6', 'S go 29.6'])
 
 # 93 ─────────────────────────────────────────────
@@ -68,14 +68,14 @@ L(name='Three Bells', idea='The festival gate needs three things at once: the sa
 
 # 96 ─────────────────────────────────────────────
 m = room()
-box(m, 6, 10, 22, 10); box(m, 25, 11, 30, 13)
+box(m, 6, 10, 22, 10); box(m, 25, 11, 30, 13); put(m, 11, 14, '^')
 put(m, 10, 9, 'o'); put(m, 17, 12, 'o'); put(m, 27, 7, 'o'); put(m, 1, 13, '12'); put(m, 29, 10, 'E')
 L(name='Plum Orchard', idea='Two paths through the orchard: Seka along the high walkway, Braco along the ground. Each one opens the door on the other’s path.',
   mech=['Seka stands on Braco', 'split paths', 'lever for the partner', 'plate for the partner'],
   hint='{B} boosts {S} onto the walkway. {S} pulls the lever to open {B}’s door; {B} stands on the plate to open {S}’s. At the end {S} helps {B} up the wall.',
   map=rows(m),
   obj=[lever(14, 9, 'a'), gate(16, 11, 'a', h=3), plate(18, 13, 'b'), gate(19, 1, 'b', h=9)],
-  sol=['B go 4.8', 'S go 3.8', 'S jump R 4.8', 'S jump R 7', 'S go 14', 'S use', 'B go 18', 'S go 24.2', 'B go 23',
+  sol=['B go 4.8', 'S go 3.8', 'S jump R 4.8', 'S jump R 7', 'S rj R 10.1 12.6', 'S go 14', 'S use', 'B rj R 10 12.8', 'B go 18', 'S go 24.2', 'B go 23',
        'B jump R 24.2', 'B jump R 26.5', 'B go 28.8', 'S jump R 26.5', 'S go 27', 'S jump N', 'S go 29.6'])
 
 # 97 ─────────────────────────────────────────────

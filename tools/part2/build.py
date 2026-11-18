@@ -6,6 +6,18 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.pat
 TITLES = {6: 'Tvrđa by Night', 7: 'Advent in Osijek', 8: 'Kopački Rit', 9: 'Baranja Vineyards', 10: 'Pannonian Finale'}
 def js(v): return json.dumps(v, ensure_ascii=False)
 sols = {}
+HARD = {}
+if '--plain' not in sys.argv and os.path.exists(os.path.join(HERE, 'harden.json')):
+    HARD = json.load(open(os.path.join(HERE, 'harden.json')))
+def harden(n, rows, obj):
+    h = HARD.get(str(n))
+    if not h: return rows, obj
+    obj = [dict(o) for o in obj]
+    for i, d in h.get('timers', {}).items(): obj[int(i)]['dur'] = d
+    for i, v in h.get('lifts', {}).items(): obj[int(i)].update(v)
+    g = [list(r) for r in rows]
+    for x, y in h.get('spikes', []): g[y][x] = '^'
+    return [''.join(r) for r in g], obj
 for ch in range(6, 11):
     f = os.path.join(HERE, 'ch%d.py' % ch)
     if not os.path.exists(f): continue
@@ -18,6 +30,7 @@ for ch in range(6, 11):
         for k, r in enumerate(rows):
             if len(r) != 32: sys.exit('level %d row %d width %d: %s' % (n, k, len(r), r))
         if len(rows) != 18: sys.exit('level %d has %d rows' % (n, len(rows)))
+        rows, objs = harden(n, rows, lv['obj'])
         out.append('\n  // %d' % n)
         out.append('  L.add({')
         out.append('    name: %s,' % js(lv['name']))
@@ -25,9 +38,9 @@ for ch in range(6, 11):
         out.append('    mech: %s,' % js(lv['mech']))
         out.append('    hint: %s,' % js(lv['hint']))
         out.append('    map: [\n' + ',\n'.join("      '%s'" % r for r in rows) + '\n    ],')
-        out.append('    obj: [\n' + ',\n'.join('      ' + js(o).replace('"t":', 't: ') for o in lv['obj']) + '\n    ]')
+        out.append('    obj: [\n' + ',\n'.join('      ' + js(o).replace('"t":', 't: ') for o in objs) + '\n    ]')
         out.append('  });')
-        sols[n] = lv['sol']
+        sols[n] = HARD.get(str(n), {}).get('sol') or lv['sol']
     out.append('\n})(SB_LEVELS);\n')
     open(os.path.join(ROOT, 'js', 'levels-ch%d.js' % ch), 'w').write('\n'.join(out))
 open(os.path.join(ROOT, 'tools', 'solutions2.js'), 'w').write(
