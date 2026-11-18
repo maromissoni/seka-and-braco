@@ -1,5 +1,5 @@
 /*
- * Level registry. Chapter files (levels-ch1.js … levels-ch5.js) call SB_LEVELS.add().
+ * Level registry. Chapter files (levels-ch1.js … levels-ch10.js) call SB_LEVELS.add().
  *
  * Map legend (32 columns × 18 rows, '.' or ' ' = empty):
  *   #  solid ground          X  cracked wall (Braco smashes it by pushing)
@@ -25,7 +25,13 @@
     { key: 'tram', name: 'Tram Lines', blurb: 'Blue trams, overhead wires and busy city streets.', food: 'paprika', foodName: 'Paprika peppers' },
     { key: 'drava', name: 'Drava Riverfront', blurb: 'Sunset on the promenade, boats and springy piers.', food: 'fis', foodName: 'Bowls of fiš' },
     { key: 'fields', name: 'Golden Fields', blurb: 'Wheat, sunflowers, hay bales and old barns.', food: 'pogaca', foodName: 'Pogača loaves' },
-    { key: 'festival', name: 'Fiš & Fun Festival', blurb: 'Cauldrons, string lights and everything you have learned.', food: 'cobanac', foodName: 'Čobanac pots' }
+    { key: 'festival', name: 'Fiš & Fun Festival', blurb: 'Cauldrons, string lights and everything you have learned.', food: 'cobanac', foodName: 'Čobanac pots' },
+    // Part 2 — harder levels
+    { key: 'night', name: 'Tvrđa by Night', blurb: 'Lantern-lit fortress walls under the stars.', food: 'orahnjaca', foodName: 'Walnut-roll slices' },
+    { key: 'advent', name: 'Advent in Osijek', blurb: 'Snowy squares, winter trams and twinkling lights.', food: 'licitar', foodName: 'Licitar hearts' },
+    { key: 'wetland', name: 'Kopački Rit', blurb: 'Reeds, marsh water and boardwalks in the nature park.', food: 'saran', foodName: 'Grilled carp' },
+    { key: 'vineyard', name: 'Baranja Vineyards', blurb: 'Terraced vines, old wine cellars and harvest carts.', food: 'grozde', foodName: 'Grape bunches' },
+    { key: 'finale', name: 'Pannonian Finale', blurb: 'Fireworks over the Drava and the hardest puzzles of all.', food: 'krafna', foodName: 'Krafne' }
   ];
   var LEVELS = [];
   function add(def) {

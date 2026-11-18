@@ -11,7 +11,7 @@
   var KEY = 'sekaBraco.save';
   var CORRUPT_KEY = 'sekaBraco.save.damaged';
   var VERSION = 1;
-  var LEVELS = 50;
+  var LEVELS = 100;
 
   var DEFAULT_KEYS = {
     S: { left: 'KeyA', right: 'KeyD', jump: 'KeyW', use: 'KeyS' },
@@ -28,7 +28,8 @@
       settings: {
         names: { S: 'Seka', B: 'Braco' },
         keys: JSON.parse(JSON.stringify(DEFAULT_KEYS)),
-        sfx: true, music: true, volume: 0.7, hints: true, reduceMotion: false
+        sfx: true, music: true, volume: 0.7, hints: true, reduceMotion: false,
+        outfit: { S: 'classic', B: 'classic' }
       },
       won: false
     };
@@ -90,6 +91,12 @@
     d.settings.volume = typeof s.volume === 'number' && s.volume >= 0 && s.volume <= 1 ? s.volume : 0.7;
     d.settings.hints = bool(s.hints, true);
     d.settings.reduceMotion = bool(s.reduceMotion, false);
+    var of = s.outfit || {}, OFS = root.SB_OUTFITS;
+    ['S', 'B'].forEach(function (p) {
+      var id = of[p];
+      if (typeof id === 'string' && (!OFS || OFS.ids(p).indexOf(id) >= 0)) d.settings.outfit[p] = id;
+      else if (id != null) repaired = true;
+    });
     d.won = bool(raw.won, false);
     if (d.current > d.unlocked) d.current = d.unlocked;
     return { data: d, repaired: repaired };

@@ -4,7 +4,7 @@
  */
 (function (root) {
   'use strict';
-  var E = root.SB_ENGINE, R = root.SB_RENDER, A = root.SB_AUDIO, S = root.SB_SAVE, I = root.SB_INPUT, LV = root.SB_LEVELS;
+  var OF = root.SB_OUTFITS, E = root.SB_ENGINE, R = root.SB_RENDER, A = root.SB_AUDIO, S = root.SB_SAVE, I = root.SB_INPUT, LV = root.SB_LEVELS;
   var canvas = document.getElementById('game'), ctx = canvas.getContext('2d');
   var ui = document.getElementById('ui'), wrap = document.getElementById('wrap');
   var save = S.load();
@@ -18,6 +18,8 @@
   // ---------- helpers ----------
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function names() { return save.settings.names; }
+  function outfits() { return save.settings.outfit; }
+  function totalTreats() { return LV.LEVELS.length * 3; }
   function kn(p, a) { return I.keyName(save.settings.keys[p][a]); }
   function fmt(text) {
     var n = names();
@@ -69,17 +71,19 @@
       (hasProgress ? '<button class="btn big" id="cont" data-focus>Continue <span class="sub">Level ' + save.current + '</span></button>' : '') +
       '<button class="btn big" id="new"' + (hasProgress ? '' : ' data-focus') + '>New Game</button>' +
       '<button class="btn" id="sel">Level Select</button>' +
+      '<button class="btn" id="ward">Wardrobe</button>' +
       '<button class="btn" id="how">How to Play</button>' +
       '<button class="btn" id="set">Settings</button>' +
       '<button class="btn" id="bak">Backup</button>' +
       '</div>' + noticeHTML() +
-      '<p class="foot">Two players, one keyboard · ' + S.totalCoins() + ' / 150 treats found</p>', 'title');
+      '<p class="foot">Two players, one keyboard · ' + S.totalCoins() + ' / ' + totalTreats() + ' treats found</p>', 'title');
     on('#cont', function () { startLevel(save.current); });
     on('#new', function () {
       if (!hasProgress) { startLevel(1); return; }
       confirmBox('Start again from Level 1?', 'Your unlocked levels and collected treats are kept. To erase everything, use Settings → Reset progress.', 'Start Level 1', function () { S.setCurrent(1); startLevel(1); }, title);
     });
     on('#sel', function () { levelSelect(title); });
+    on('#ward', function () { wardrobe(title); });
     on('#how', function () { howTo(title); });
     on('#set', function () { settings(title); });
     on('#bak', function () { backup(title); });
@@ -95,10 +99,18 @@
 
   var back = null; // what Escape does in menus
 
-  function levelSelect(ret) {
+  var selPage = null;
+  function levelSelect(ret, page) {
     back = ret;
-    var html = '<div class="panel wide"><h2>Level Select</h2><div class="chapters">';
+    var pages = Math.ceil(LV.CHAPTERS.length / 5);
+    if (page == null) page = selPage != null ? selPage : Math.floor((Math.min(save.current, save.unlocked) - 1) / 50);
+    page = Math.max(0, Math.min(pages - 1, page)); selPage = page;
+    var html = '<div class="panel wide"><h2>Level Select</h2>' +
+      (pages > 1 ? '<div class="row tabs">' + [0, 1].slice(0, pages).map(function (p) {
+        return '<button class="btn small tab' + (p === page ? ' on' : '') + '" data-page="' + p + '">' + (p ? 'Part 2 · Levels 51–100' : 'Part 1 · Levels 1–50') + '</button>';
+      }).join('') + '</div>' : '') + '<div class="chapters">';
     LV.CHAPTERS.forEach(function (c, ci) {
+      if (Math.floor(ci / 5) !== page) return;
       html += '<div class="chapter"><div class="chname"><b>' + (ci + 1) + '. ' + esc(c.name) + '</b><span>' + esc(c.blurb) + '</span></div><div class="lvls">';
       for (var i = 1; i <= 10; i++) {
         var id = ci * 10 + i, locked = id > save.unlocked, done = save.done.indexOf(id) >= 0;
@@ -113,22 +125,58 @@
     });
     html += '</div><div class="row"><button class="btn" id="back">Back</button></div></div>';
     show(html, 'modal');
+    ui.querySelectorAll('.tab').forEach(function (b) {
+      b.addEventListener('click', function () { A.play('click'); levelSelect(ret, +b.dataset.page); var t = ui.querySelector('.tab.on'); if (t) t.focus(); });
+    });
     ui.querySelectorAll('.lvl:not(.locked)').forEach(function (b) {
       b.addEventListener('click', function () { A.play('click'); startLevel(+b.dataset.id); });
     });
-    var cur = ui.querySelector('.lvl[data-id="' + Math.min(save.current, save.unlocked) + '"]'); if (cur) cur.focus();
+    var cur = ui.querySelector('.lvl[data-id="' + Math.min(save.current, save.unlocked) + '"]'); if (cur) cur.focus({ preventScroll: true });
     on('#back', ret);
   }
 
   function keyRow(p) {
     return '<kbd>' + esc(kn(p, 'left')) + '</kbd><kbd>' + esc(kn(p, 'right')) + '</kbd> move · <kbd>' + esc(kn(p, 'jump')) + '</kbd> jump · <kbd>' + esc(kn(p, 'use')) + '</kbd> use lever';
   }
-  function portraitCanvas(kind, opts) { return '<canvas class="portrait" data-kind="' + kind + '" data-opts=\'' + JSON.stringify(opts || {}) + '\' width="120" height="150"></canvas>'; }
+  function portraitCanvas(kind, opts, small) {
+    opts = opts || {}; if (!opts.outfit) opts.outfit = outfits()[kind];
+    return '<canvas class="portrait' + (small ? ' mini' : '') + '" data-kind="' + kind + '" data-opts=\'' + JSON.stringify(opts) + '\' width="' + (small ? 64 : 120) + '" height="' + (small ? 84 : 150) + '"></canvas>';
+  }
   function paintPortraits() {
     ui.querySelectorAll('canvas.portrait').forEach(function (cv) {
       var c = cv.getContext('2d'); c.clearRect(0, 0, cv.width, cv.height);
-      R.drawPortrait(c, cv.dataset.kind, cv.width / 2, cv.height - 6, 1.4, clock, JSON.parse(cv.dataset.opts || '{}'));
+      var mini = cv.classList.contains('mini');
+      R.drawPortrait(c, cv.dataset.kind, cv.width / 2, cv.height - (mini ? 3 : 6), mini ? 0.8 : 1.4, clock, JSON.parse(cv.dataset.opts || '{}'));
     });
+  }
+
+  function wardrobe(ret) {
+    back = ret;
+    var n = names(), fits = outfits();
+    var html = '<div class="panel wide wardrobe"><h2>Wardrobe</h2><p class="lead">Pick an outfit for each of you. It’s only for looks — every outfit plays the same.</p><div class="two">';
+    ['S', 'B'].forEach(function (k) {
+      var cur = OF.get(k, fits[k]);
+      html += '<div class="wcol"><div class="whead">' + portraitCanvas(k, { outfit: cur.id, facing: k === 'B' ? -1 : 1 }) +
+        '<div><h3>' + esc(n[k]) + ' <span class="' + (k === 'S' ? 'tagS">●' : 'tagB">■') + '</span></h3><p class="wname">' + esc(cur.name) + '</p></div></div><div class="fits">';
+      OF[k].forEach(function (f) {
+        html += '<button class="fit' + (f.id === cur.id ? ' on' : '') + '" data-k="' + k + '" data-id="' + f.id + '" aria-pressed="' + (f.id === cur.id) + '" title="' + esc(f.name) + '">' +
+          portraitCanvas(k, { outfit: f.id }, true) + '<span>' + esc(f.name) + '</span></button>';
+      });
+      html += '</div></div>';
+    });
+    html += '</div><div class="row"><button class="btn" id="back">Back</button></div></div>';
+    show(html, 'modal');
+    paintPortraits();
+    ui.querySelectorAll('.fit').forEach(function (b) {
+      b.addEventListener('click', function () {
+        A.play('click');
+        save.settings.outfit[b.dataset.k] = b.dataset.id; persist();
+        wardrobe(ret);
+        var again = ui.querySelector('.fit[data-k="' + b.dataset.k + '"][data-id="' + b.dataset.id + '"]'); if (again) again.focus({ preventScroll: true });
+      });
+    });
+    var first = ui.querySelector('.fit.on'); if (first) first.focus({ preventScroll: true });
+    on('#back', ret);
   }
 
   function howTo(ret) {
@@ -260,10 +308,10 @@
     show('<div class="panel small"><h2>Paused</h2><p class="lvlname">Level ' + levelId + ' · ' + esc(def.name) + '</p>' +
       (save.settings.hints ? '<p class="hint">💡 ' + esc(fmt(def.hint)) + '</p>' : '') +
       '<div class="menu"><button class="btn" id="res" data-focus>Resume</button><button class="btn" id="rst">Restart level</button>' +
-      '<button class="btn" id="how">How to Play</button><button class="btn" id="set">Settings</button>' +
+      '<button class="btn" id="how">How to Play</button><button class="btn" id="ward">Wardrobe</button><button class="btn" id="set">Settings</button>' +
       '<button class="btn" id="sel">Level Select</button><button class="btn" id="main">Main Menu</button></div></div>', 'modal');
     on('#res', resume); on('#rst', function () { restart(); resume(); });
-    on('#how', function () { howTo(pause2); }); on('#set', function () { settings(pause2); });
+    on('#how', function () { howTo(pause2); }); on('#ward', function () { wardrobe(pause2); }); on('#set', function () { settings(pause2); });
     on('#sel', function () { levelSelect(pause2); }); on('#main', title);
   }
   function pause2() { mode = 'play'; pause(); }
@@ -281,6 +329,7 @@
     show('<div class="panel small"><h2>Level complete!</h2><p class="lvlname">' + esc(world.def.name) + '</p>' +
       '<div class="treats">' + [0, 1, 2].map(function (i) { return '<canvas class="food" data-on="' + (coins[i] ? 1 : 0) + '" width="60" height="60"></canvas>'; }).join('') + '</div>' +
       '<p>' + got + ' of 3 treats this time' + (best > got ? ' · best ' + best + '/3' : '') + '</p>' +
+      (levelId === 50 ? '<p class="small"><b>Halfway there!</b> Part 2 begins — 50 harder levels.</p>' : '') +
       (levelId % 10 === 0 ? '<p class="small">Chapter complete! Next: <b>' + esc(LV.CHAPTERS[levelId / 10].name) + '</b></p>' : '') +
       (saved ? '' : '<p class="small warnText">Progress could not be saved in this browser.</p>') +
       '<div class="menu"><button class="btn big" id="next" data-focus>Next level</button><button class="btn" id="again">Play again</button><button class="btn" id="sel">Level Select</button></div></div>', 'modal');
@@ -299,8 +348,8 @@
     back = title;
     show('<div class="panel win"><h2>Živjeli! You did it!</h2>' +
       '<div class="pair">' + portraitCanvas('S', { surprised: true }) + portraitCanvas('B', { facing: -1 }) + '</div>' +
-      '<p class="lead">' + esc(n.S) + ' &amp; ' + esc(n.B) + ' made it through all 50 levels — from the old town to the grand fiš feast.</p>' +
-      '<p>Treats found: <b>' + total + ' / 150</b>' + (total < 150 ? ' — some are still hiding in earlier levels!' : ' — every single one. Legendary!') + '</p>' +
+      '<p class="lead">' + esc(n.S) + ' &amp; ' + esc(n.B) + ' made it through all ' + LV.LEVELS.length + ' levels — from the old town to the grand finale.</p>' +
+      '<p>Treats found: <b>' + total + ' / ' + totalTreats() + '</b>' + (total < totalTreats() ? ' — some are still hiding in earlier levels!' : ' — every single one. Legendary!') + '</p>' +
       '<p class="small">Thanks for playing together.</p>' +
       '<div class="menu"><button class="btn" id="sel" data-focus>Level Select</button><button class="btn" id="main">Main Menu</button></div></div>', 'modal');
     paintPortraits();
@@ -354,7 +403,7 @@
 
     // draw
     if (world && mode !== 'menu') {
-      R.drawWorld(ctx, world, { t: clock, dt: mode === 'play' ? dt : 0, names: names(), fmt: fmt, reduceMotion: save.settings.reduceMotion });
+      R.drawWorld(ctx, world, { t: clock, dt: mode === 'play' ? dt : 0, names: names(), outfits: outfits(), fmt: fmt, reduceMotion: save.settings.reduceMotion });
       var def = world.def, tut = null;
       if (levelId <= 3 && mode === 'play' && world.t < 12) tut = fmt('{S}: {S.move} move, {S.jump} jump, {S.use} lever   ·   {B}: {B.move} move, {B.jump} jump, {B.use} lever');
       if (bannerT > 0) bannerT -= dt; else banner = null;
@@ -367,10 +416,10 @@
       if (mode !== 'play') { ctx.fillStyle = 'rgba(30,18,12,0.45)'; ctx.fillRect(0, 0, E.W, E.H); }
     } else {
       // menu backdrop: cycle through the chapters' scenery
-      var ch = Math.floor(clock / 8) % 5;
+      var ch = Math.floor(clock / 8) % LV.CHAPTERS.length;
       ctx.drawImage(R.background(ch), 0, 0);
-      R.drawPortrait(ctx, 'S', 470, 650, 2.6, clock, { glide: Math.sin(clock) > 0.6 });
-      R.drawPortrait(ctx, 'B', 810, 650, 2.6, clock, { facing: -1 });
+      R.drawPortrait(ctx, 'S', 470, 650, 2.6, clock, { glide: Math.sin(clock) > 0.6, outfit: outfits().S });
+      R.drawPortrait(ctx, 'B', 810, 650, 2.6, clock, { facing: -1, outfit: outfits().B });
       ctx.fillStyle = 'rgba(30,18,12,0.2)'; ctx.fillRect(0, 0, E.W, E.H);
     }
     if (ui.querySelector('canvas.portrait') && Math.floor(clock * 10) !== fireworks) { fireworks = Math.floor(clock * 10); paintPortraits(); }
