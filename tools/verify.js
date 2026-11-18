@@ -27,7 +27,7 @@ var SOL = Object.assign({}, require(path.join(__dirname, 'solutions.js')));
 try { Object.assign(SOL, require(path.join(__dirname, 'solutions2.js'))); } catch (e) { if (e.code !== 'MODULE_NOT_FOUND') throw e; }
 
 var T = E.T, STEP = E.STEP;
-var args = process.argv.slice(2);
+var args = require.main === module ? process.argv.slice(2) : [];
 var trace = args.indexOf('--full') >= 0 ? 'full' : args.indexOf('--trace') >= 0;
 var only = args.filter(function (a) { return /^\d+$/.test(a); }).map(Number);
 
@@ -163,6 +163,7 @@ function solve(def, steps) {
   return { ok: false, why: 'script ended but level not complete', w: w, log: log };
 }
 
+if (require.main !== module) { module.exports = { solve: solve, SOL: SOL, E: E, LV: LV }; return; }
 var levels = LV.LEVELS, failures = 0, report = [];
 levels.forEach(function (def, i) {
   var n = i + 1;
