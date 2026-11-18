@@ -29,7 +29,7 @@
       '################################'
     ],
     obj: [
-      {t:  "lift", "x": 16, "y": 12, "w": 2, "to": [18, 12], "ch": "a", "loop": true, "skin": "raft", "speed": 60, "pause": 0.8},
+      {t:  "lift", "x": 16, "y": 12, "w": 2, "to": [18, 12], "ch": "a", "loop": true, "skin": "raft", "speed": 78, "pause": 0.5},
       {t:  "lever", "x": 21, "y": 11, "ch": "a"},
       {t:  "sign", "x": 1, "y": 13, "text": "Kopački rit nature park"}
     ]
@@ -62,7 +62,7 @@
       '################################'
     ],
     obj: [
-      {t:  "lift", "x": 7, "y": 14, "w": 3, "to": [20, 14], "skin": "raft", "speed": 80, "pause": 1.5},
+      {t:  "lift", "x": 7, "y": 14, "w": 3, "to": [20, 14], "skin": "raft", "speed": 92, "pause": 1.2},
       {t:  "plate", "x": 25, "y": 13, "ch": "a", "heavy": true},
       {t:  "gate", "x": 27, "y": 1, "h": 13, "ch": "a"}
     ]
@@ -98,8 +98,8 @@
       {t:  "plate", "x": 1, "y": 13, "ch": "a"},
       {t:  "gate", "x": 26, "y": 1, "h": 8, "ch": "a"},
       {t:  "lever", "x": 28, "y": 8, "ch": "a"},
-      {t:  "lift", "x": 3, "y": 12, "w": 2, "to": [3, 8], "skin": "raft", "speed": 70, "pause": 0.6},
-      {t:  "lift", "x": 7, "y": 8, "w": 2, "to": [7, 12], "skin": "raft", "speed": 70, "pause": 0.6},
+      {t:  "lift", "x": 3, "y": 12, "w": 2, "to": [3, 8], "skin": "raft", "speed": 91, "pause": 0.4},
+      {t:  "lift", "x": 7, "y": 8, "w": 2, "to": [7, 12], "skin": "raft", "speed": 91, "pause": 0.4},
       {t:  "lift", "x": 11, "y": 12, "w": 2, "to": [11, 8], "skin": "raft", "speed": 70, "pause": 0.6},
       {t:  "lift", "x": 15, "y": 8, "w": 2, "to": [15, 12], "skin": "raft", "speed": 70, "pause": 0.6},
       {t:  "lift", "x": 19, "y": 12, "w": 2, "to": [19, 8], "skin": "raft", "speed": 70, "pause": 0.6}
@@ -134,11 +134,11 @@
     ],
     obj: [
       {t:  "lever", "x": 2, "y": 11, "ch": "a"},
-      {t:  "lift", "x": 4, "y": 14, "w": 3, "to": [7, 14], "ch": "a", "skin": "raft", "speed": 110},
+      {t:  "lift", "x": 4, "y": 14, "w": 3, "to": [7, 14], "ch": "a", "skin": "raft", "speed": 143, "pause": 0.3},
       {t:  "lever", "x": 11, "y": 11, "ch": "b"},
-      {t:  "lift", "x": 13, "y": 14, "w": 3, "to": [16, 14], "ch": "b", "skin": "raft", "speed": 110},
+      {t:  "lift", "x": 13, "y": 14, "w": 3, "to": [16, 14], "ch": "b", "skin": "raft", "speed": 143, "pause": 0.3},
       {t:  "lever", "x": 20, "y": 11, "ch": "a"},
-      {t:  "lift", "x": 22, "y": 14, "w": 3, "to": [25, 14], "ch": "a", "skin": "raft", "speed": 110}
+      {t:  "lift", "x": 22, "y": 14, "w": 3, "to": [25, 14], "ch": "a", "skin": "raft", "speed": 143, "pause": 0.3}
     ]
   });
 
@@ -158,7 +158,7 @@
       '#...........................o..#',
       '#..............................#',
       '#..............................#',
-      '#....######################....#',
+      '#....#####^^###############....#',
       '#........X.....................#',
       '#.---....X.....................#',
       '#........X.o...................#',
@@ -207,9 +207,9 @@
       '################################'
     ],
     obj: [
-      {t:  "lift", "x": 4, "y": 14, "w": 2, "to": [4, 10], "ch": "a", "speed": 100},
+      {t:  "lift", "x": 4, "y": 14, "w": 2, "to": [4, 10], "ch": "a", "speed": 130, "pause": 0.3},
       {t:  "lever", "x": 8, "y": 9, "ch": "a"},
-      {t:  "lift", "x": 12, "y": 10, "w": 2, "to": [12, 6], "ch": "b", "speed": 100},
+      {t:  "lift", "x": 12, "y": 10, "w": 2, "to": [12, 6], "ch": "b", "speed": 130, "pause": 0.3},
       {t:  "lever", "x": 16, "y": 5, "ch": "b"}
     ]
   });
@@ -230,7 +230,7 @@
       '#.................o............#',
       '#..............................#',
       '#..............................#',
-      '#.....###############..........#',
+      '#.....###^^##########..........#',
       '#.......X......X....X....o.....#',
       '#..---..X......X....X..........#',
       '#.......X....o.X....X..........#',
@@ -251,9 +251,9 @@
   // 78
   L.add({
     name: "Spring Marsh",
-    idea: "Springy tussocks are the only way over the marsh. Seka bounces up to a hidden roost to pull the gate lever; then Braco follows the same springs all the way to the far bank.",
-    mech: ["spring chains", "steering in mid-air", "lever on a high roost", "marsh water"],
-    hint: "Bounce from tussock to tussock, steering in the air. {S} steers onto the high roost from the last spring and pulls the lever. Then {B} bounces all the way over.",
+    idea: "Springy tussocks are the only way over the marsh. Both bounce up to the high roost — the bell there only holds the far gate for three seconds, so leap for the bank together.",
+    mech: ["spring chains", "steering in mid-air", "timer bell on a high roost", "marsh water"],
+    hint: "Bounce from tussock to tussock, steering in the air. {B} goes first and waits on the roost; {S} lands on the bell, then you both jump for the gate at once.",
     map: [
       '################################',
       '#..............................#',
@@ -275,7 +275,7 @@
       '################################'
     ],
     obj: [
-      {t:  "lever", "x": 21, "y": 5, "ch": "a"},
+      {t:  "timer", "x": 21, "y": 5, "ch": "a", "dur": 2},
       {t:  "gate", "x": 28, "y": 1, "h": 13, "ch": "a"}
     ]
   });
@@ -301,14 +301,14 @@
       '#..............................#',
       '#..............................#',
       '#12..........................E.#',
-      '################################',
+      '#########^^#####################',
       '################################',
       '################################',
       '################################'
     ],
     obj: [
-      {t:  "timer", "x": 16, "y": 13, "ch": "b", "dur": 5},
-      {t:  "lift", "x": 13, "y": 13, "w": 2, "to": [13, 6], "ch": "b", "loop": true, "speed": 120, "pause": 0.6},
+      {t:  "timer", "x": 16, "y": 13, "ch": "b", "dur": 3.75},
+      {t:  "lift", "x": 13, "y": 13, "w": 2, "to": [13, 6], "ch": "b", "loop": true, "speed": 156, "pause": 0.4},
       {t:  "plate", "x": 18, "y": 13, "ch": "c"},
       {t:  "gate", "x": 19, "y": 1, "h": 5, "ch": "c"},
       {t:  "plate", "x": 24, "y": 13, "ch": "a", "heavy": true},
@@ -337,7 +337,7 @@
       '#..............................#',
       '#..............................#',
       '#12.C................b.......E.#',
-      '######wwwwwwwww#################',
+      '######wwwwwwwww##########^^#####',
       '################################',
       '################################',
       '################################'
