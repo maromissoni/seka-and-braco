@@ -127,7 +127,7 @@ node tools/verify.js
 
 It plays all 100 levels with scripted moves using the real game physics. It prints `PASS` when both characters reach the exit with all 3 treats. `node tools/verify.js 12 13` checks only levels 12 and 13, and adding `--trace` shows each step.
 
-Levels 51–100 are written in `tools/part2/ch6.py` … `ch10.py`; after editing one, run `python3 tools/part2/build.py` first. If you edit a level's map or objects, run the checker again so you know the level is still solvable. After editing names or ideas, regenerate the level list with `node tools/make-levels-md.js`.
+Levels 51–100 are written in `tools/part2/ch6.py` … `ch10.py`; after editing one, rebuild in three steps: `python3 tools/part2/build.py --plain`, then `node tools/part2/harden.js` (the difficulty pass: it shortens bells, speeds up moving platforms and adds spike strips, keeping each change only if the level still solves; results go to `tools/part2/harden.json`), then `python3 tools/part2/build.py`. If you edit a level's map or objects, run the checker again so you know the level is still solvable. After editing names or ideas, regenerate the level list with `node tools/make-levels-md.js`.
 
 ## Credits
 
