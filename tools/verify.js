@@ -19,11 +19,12 @@
 var path = require('path');
 var E = require(path.join(__dirname, '..', 'js', 'engine.js'));
 var LV = require(path.join(__dirname, '..', 'js', 'levels.js'));
-[1, 2, 3, 4, 5].forEach(function (c) {
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach(function (c) {
   try { require(path.join(__dirname, '..', 'js', 'levels-ch' + c + '.js')); }
   catch (e) { if (e.code !== 'MODULE_NOT_FOUND') throw e; }
 });
-var SOL = require(path.join(__dirname, 'solutions.js'));
+var SOL = Object.assign({}, require(path.join(__dirname, 'solutions.js')));
+try { Object.assign(SOL, require(path.join(__dirname, 'solutions2.js'))); } catch (e) { if (e.code !== 'MODULE_NOT_FOUND') throw e; }
 
 var T = E.T, STEP = E.STEP;
 var args = process.argv.slice(2);

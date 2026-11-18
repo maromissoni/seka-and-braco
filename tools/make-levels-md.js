@@ -1,10 +1,10 @@
 // Regenerates LEVELS.md from the level data:  node tools/make-levels-md.js
 var path = require('path'), fs = require('fs');
 var LV = require(path.join(__dirname, '..', 'js', 'levels.js'));
-for (var c = 1; c <= 5; c++) require(path.join(__dirname, '..', 'js', 'levels-ch' + c + '.js'));
+for (var c = 1; c <= 10; c++) require(path.join(__dirname, '..', 'js', 'levels-ch' + c + '.js'));
 
 var out = ['# Level list', '',
-  'All 50 levels, generated from the level files by `node tools/make-levels-md.js`.',
+  'All 100 levels, generated from the level files by `node tools/make-levels-md.js`.',
   'Every level is checked by `node tools/verify.js`, which plays it with a scripted solution',
   'using the real game physics and requires both players at the exit and all 3 treats collected.', '',
   'Jump limits used when designing: Seka climbs 3 blocks (about 3.4), Braco 2 (about 2.4);',
