@@ -1,6 +1,9 @@
 # Seka & Braco: A Slavonian Escape
 
-A two-player co-op puzzle platformer for **one keyboard**. Seka and her brother Braco work together through 50 levels set in Osijek and Slavonia: the red-brick old town, the tram lines, the Drava riverfront, the golden fields, and finally the fiš festival.
+A two-player co-op puzzle platformer for **one keyboard**. Seka and her brother Braco work together through **100 levels** set in Osijek and Slavonia.
+
+- **Part 1 (levels 1–50):** the red-brick old town, the tram lines, the Drava riverfront, the golden fields and the fiš festival.
+- **Part 2 (levels 51–100, a bit harder):** Tvrđa by night, Advent in Osijek, the marshes of Kopački rit, the Baranja vineyards, and a Pannonian finale.
 
 It is a plain web page (HTML, CSS and JavaScript), so it runs in any modern desktop browser and can be hosted on **GitHub Pages for free**. There is no build step, server, account or API key.
 
@@ -65,13 +68,22 @@ Many keyboards can't register more than a few keys at the same moment, especiall
 
 To fix it, remap one player to keys further apart. For example, give Braco **J / L / I / K**.
 
+## Wardrobe
+
+Open **Wardrobe** from the title menu or the pause menu to choose an outfit for each character. There are 10 outfits each:
+
+- **Seka:** Classic Black, Red Dress, Šokačka Folk, Ball Gown, Tuxedo, Sunflower Sundress, Winter Coat, Tracksuit, Festival Chef, Denim Day.
+- **Braco:** Classic Vest, Tuxedo, Slavonian Folk, Navy Suit, Holiday Shirt, Festival Chef, Lumberjack, Drava Fisherman, Cosy Hoodie, Football Kit.
+
+Outfits only change how the characters look, never what they can do. The choice is saved with your progress.
+
 ## What each character can do
 
 - **Seka** jumps higher (3 blocks) and glides with her paprika parasol (hold jump while falling). She can also walk on the red embroidered ribbon bridges.
 - **Braco** pushes crates, smashes cracked walls by walking into them, and is heavy enough for **kg** plates.
 - **Both** can stand on each other's heads, press plates, ring bells and pull levers.
 - Every switch and the gate, lift or bridge it controls share a **colour and a shape**. A crossed symbol marks a bridge that appears while it is powered.
-- Stew, river water and spikes send you back to the start of the level instantly. There are no lives and no timers to beat.
+- Stew, river water and spikes send you back to the start of the level instantly. There are no lives and no clock to beat (bell timers only hold doors open for a few seconds).
 
 ## Saving
 
@@ -92,13 +104,16 @@ To fix it, remap one player to keys further apart. For example, give Braco **J /
 | `index.html` | The page that loads everything |
 | `css/style.css` | Menu styles |
 | `js/engine.js` | Physics and puzzle logic (no drawing, so it also runs in Node for testing) |
-| `js/levels.js`, `js/levels-ch1.js` … `levels-ch5.js` | The 50 levels, as text maps plus objects |
+| `js/levels.js`, `js/levels-ch1.js` … `levels-ch10.js` | The 100 levels, as text maps plus objects |
+| `js/outfits.js` | The 20 Wardrobe outfits (colours and pieces; drawn by `render.js`) |
 | `js/render.js` | All the art, drawn in code (no image files) |
 | `js/audio.js` | Synthesised sound effects and music |
 | `js/input.js` | Keyboard handling and remapping |
 | `js/save.js` | Saving, validation and backups |
 | `js/ui.js` | Menus and the game loop |
 | `tools/verify.js` | Plays every level automatically to prove it can be solved |
+| `tools/solutions2.js` | Scripted solutions for levels 51–100 (generated) |
+| `tools/part2/` | Python sources for levels 51–100; `python3 tools/part2/build.py` rebuilds `levels-ch6.js` … `levels-ch10.js` and `solutions2.js` |
 | `LEVELS.md` | The idea and mechanics of every level |
 | `ART_GUIDE.md` | Palette, character and style rules |
 
@@ -110,9 +125,9 @@ If you have [Node.js](https://nodejs.org) installed:
 node tools/verify.js
 ```
 
-It plays all 50 levels with scripted moves using the real game physics. It prints `PASS` when both characters reach the exit with all 3 treats. `node tools/verify.js 12 13` checks only levels 12 and 13, and adding `--trace` shows each step.
+It plays all 100 levels with scripted moves using the real game physics. It prints `PASS` when both characters reach the exit with all 3 treats. `node tools/verify.js 12 13` checks only levels 12 and 13, and adding `--trace` shows each step.
 
-If you edit a level's map or objects, run it again so you know the level is still solvable. After editing names or ideas, regenerate the level list with `node tools/make-levels-md.js`.
+Levels 51–100 are written in `tools/part2/ch6.py` … `ch10.py`; after editing one, run `python3 tools/part2/build.py` first. If you edit a level's map or objects, run the checker again so you know the level is still solvable. After editing names or ideas, regenerate the level list with `node tools/make-levels-md.js`.
 
 ## Credits
 

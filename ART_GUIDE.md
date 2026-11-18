@@ -56,6 +56,23 @@ Both are drawn at the same scale and with the same outline weight and face style
 
 Beyond colour, the two always differ in **silhouette** (bob vs quiff, slim vs broad), **tag shape** (circle vs square, with the name's initial) and **exit lamp** (circle vs square).
 
+### Wardrobe outfits
+Outfits (`js/outfits.js`) are plain colour data that `render.js` applies to the same body. Rules:
+- Only clothes, shoes, hats and neckwear change. Faces, hair, the mustache, proportions and collision boxes never change.
+- Every outfit keeps the silhouettes apart: Seka's skirts and dresses widen her lower half but she stays narrower than Braco; hats sit on top of the bob or quiff without hiding them.
+- Patterns (folk embroidery, flowers, stripes, plaid) are drawn as a few simple marks, not textures, so they read at game scale.
+- No logos, brand marks or crests; the football kit is a generic blue-and-white stripe with the number 10.
+- The name tag moves up when a hat is worn so it never covers the hat.
+
+## Part 2 backdrops (levels 51–100)
+- **Tvrđa by Night:** dark-blue sky with stars and a crescent moon, façades with lit windows, a brick tower, the fortress wall and glowing street lamps.
+- **Advent in Osijek:** pale winter sky, snow-capped façades with warm windows, a decorated advent tree with a star, a tram and falling snow.
+- **Kopački Rit:** soft green-and-cream sky, marsh water with reeds and cattails, a heron and a boardwalk.
+- **Baranja Vineyards:** warm golden sky, three rolling hills of vine rows, a white wine cellar with an arched door and barrels.
+- **Pannonian Finale:** night sky with fireworks over a dark city skyline with a church spire and a bridge over the river.
+- Chapters 5, 6 and 10 (by night and festival) get a dark haze; Advent and the finale also get twinkling string lights.
+Each chapter has its own treat: orahnjača, licitar heart, šaran, grozd and krafna.
+
 ## Proportions
 - About 2.5 heads tall: a big head (radius 12–14 px) on a short body.
 - Seka: 24 × 54 px collision box, drawn about 62 px tall.
